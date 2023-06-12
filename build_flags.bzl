@@ -16,12 +16,23 @@
 # release configuration.  If at all possible, use aconfig flags instead.
 # This is for things that must be decided at compile time.
 
-# Flags should be alphabetical by flag name.
+load(
+    "//build/make/core/release_config.bzl",
+    "ALL",
+    "PRODUCT",
+    "SYSTEM",
+    "SYSTEM_EXT",
+    "VENDOR",
+    "flag",
+)
 
+# Flags should be alphabetical by flag name to reduce merge conflifcts
 flags = [
-    struct(
-        name = "RELEASE_DEVICE_CONFIG_VALUE_SETS",
-        partitions = ["all"],
-        default = [],
-    ),
+    # The device_config_value_set soong module to use to set aconfig values.
+    flag("RELEASE_DEVICE_CONFIG_VALUE_SETS", ALL, None),
+
+    # The platform version.
+    # TODO(joeo): Remove the default here. Maybe for platform builds not having
+    # a version should be an error and should be allowed for unbundled builds.
+    flag("RELEASE_PLATFORM_VERSION", ALL, "VP1A"),
 ]
