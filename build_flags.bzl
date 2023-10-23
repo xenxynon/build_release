@@ -64,8 +64,14 @@ flags = [
     # Enables loading vendor modules (both kernel & userspace) in Microdroid VM.
     flag("RELEASE_AVF_ENABLE_VENDOR_MODULES", ALL, False),
 
+    # If enabled, DeathRecipient is not strongly referenced from JNI.
+    flag("RELEASE_BINDER_DEATH_RECIPIENT_WEAK_FROM_JNI", ALL, False),
+
     # The behavior for the tree wrt building mainline modules or using prebuilts
     flag("RELEASE_DEFAULT_MODULE_BUILD_FROM_SOURCE", ALL, False),
+
+    # Enables flagged apis to be exposed.
+    flag("RELEASE_EXPOSE_FLAGGED_API", ALL, True),
 
     # The version of mainline prebuilts used when prebuilts are enabled.
     flag("RELEASE_MAINLINE_MODULE_PREBUILT_VERSION", ALL, "mainline_module_prebuilt_nightly"),
