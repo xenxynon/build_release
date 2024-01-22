@@ -119,6 +119,11 @@ flags = [
     # Enables Bluetooth Ranging Service
     flag("RELEASE_HARDWARE_BLUETOOTH_RANGING_SERVICE", ALL, True),
 
+    # b/319697968: Flag to determine the dependency of hiddenapi to the stubs that contain all
+    # flagged apis ("everything" stubs), or to the stubs that contain only the enabled flagged
+    # apis ("exportable" stubs).
+    flag("RELEASE_HIDDEN_API_EXPORTABLE_STUBS", ALL, False),
+
     # The version of mainline prebuilts used when prebuilts are enabled.
     flag("RELEASE_MAINLINE_MODULE_PREBUILT_VERSION", ALL, "mainline_module_prebuilt_nightly"),
 
@@ -127,6 +132,9 @@ flags = [
 
     # This flag will control the rollout of new versions of the SoundPicker app.
     flag("RELEASE_PACKAGE_SOUND_PICKER", ALL, "SoundPicker"),
+
+    # tzdata to be installed to the system image.
+    flag("RELEASE_PACKAGE_TZDATA_MODULE", ALL, "com.android.tzdata"),
 
     # The name of the virtual camera package to add to the system partition.
     flag("RELEASE_PACKAGE_VIRTUAL_CAMERA", SYSTEM, ""),
@@ -147,6 +155,9 @@ flags = [
 
     # The sdk extension version of this release configuration.
     flag("RELEASE_PLATFORM_SDK_EXTENSION_VERSION", ALL, "11"),
+
+    # Allow system property storage node to be 1M to accomodate aconfig flags.
+    flag("RELEASE_LARGE_SYSTEM_PROPERTY_NODE", ALL, False),
 
     # Set to REL for production platform builds, otherwise the codename string,
     # e.g. UpsideDownCake or VanillaIceCream
@@ -175,4 +186,7 @@ flags = [
 
     # b/292140387: Flag to switch to the new NFC apex
     flag("RELEASE_PACKAGE_NFC_STACK", SYSTEM, "NfcNci"),
+
+    # True for using variable font of the NotoSansCJK
+    flag("RELEASE_PACKAGE_VARIABLE_NOTO_SANS_CJK", SYSTEM, False),
 ]
