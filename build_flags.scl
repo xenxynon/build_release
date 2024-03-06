@@ -49,6 +49,9 @@ flags = [
     # Move ANGLE libraries from vendor partition to system partition.
     flag("RELEASE_ANGLE_ON_SYSTEM", ALL, False),
 
+    # jars need to be excluded from Apex Boot Jars for targets with mainline prebuilts enabled.
+    flag("RELEASE_APEX_BOOT_JARS_PREBUILT_EXCLUDED_LIST", ALL, ""),
+
     # Move User avatar picker from SettingsLib to preinstalled app.
     flag("RELEASE_AVATAR_PICKER_APP", ALL, False),
 
@@ -93,6 +96,9 @@ flags = [
     # If true, then crashrecovery module is enabled as an apex
     flag("RELEASE_CRASHRECOVERY_MODULE", ALL, False),
 
+    # If true, then files are moved from platform to apex
+    flag("RELEASE_CRASHRECOVERY_FILE_MOVE", ALL, False),
+
     # Enable build system to create new aconfig storage files.
     flag("RELEASE_CREATE_ACONFIG_STORAGE_FILE", ALL, False),
 
@@ -101,10 +107,6 @@ flags = [
 
     # feature flag to deprecate VNDK
     flag("RELEASE_DEPRECATE_VNDK", ALL, False),
-
-    # Enable flagged apis marked with READ_WRITE permission aconfig flags to be
-    # exposed and accessible at runtime
-    flag("RELEASE_EXPORT_RUNTIME_APIS", ALL, False),
 
     # Enables Bluetooth Ranging Service
     flag("RELEASE_HARDWARE_BLUETOOTH_RANGING_SERVICE", ALL, True),
@@ -119,6 +121,9 @@ flags = [
 
     # The version of mainline prebuilts used when prebuilts are enabled.
     flag("RELEASE_MAINLINE_MODULE_PREBUILT_VERSION", ALL, "mainline_module_prebuilt_nightly"),
+
+    # If true, then files are moved from platform to apex
+    flag("RELEASE_MOVE_PDFRENDERER_TO_MODULE", ALL, False),
 
     # Enables ABI monitoring of NDK libraries.
     flag("RELEASE_NDK_ABI_MONITORED", ALL, False),
@@ -137,6 +142,9 @@ flags = [
 
     # b/292140387: Flag to switch to the new NFC apex
     flag("RELEASE_PACKAGE_NFC_STACK", SYSTEM, "NfcNci"),
+
+    # Flag will control the release of the Profiling module apex.
+    flag("RELEASE_PACKAGE_PROFILING_MODULE", ALL, False),
 
     # This flag will control the rollout of new versions of the SoundPicker app.
     flag("RELEASE_PACKAGE_SOUND_PICKER", ALL, "SoundPicker"),
