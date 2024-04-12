@@ -17,6 +17,7 @@ aconfig_value_set {
     values: [
         "aconfig_values-aosp-root-all",
         "aconfig_values-aosp-trunk_staging-all",
+        "aconfig-values-aosp-trunk_staging-com.android.libcore-all",
     ]
 }
 
