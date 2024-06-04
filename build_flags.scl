@@ -71,10 +71,12 @@ flags = [
     flag("RELEASE_APEX_CONTRIBUTIONS_IPSEC", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_MEDIA", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_MEDIAPROVIDER", ALL, None, origin="aosp"),
+    flag("RELEASE_APEX_CONTRIBUTIONS_MODULE_METADATA", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_NETWORKSTACKGOOGLE", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_NEURALNETWORKS", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_ONDEVICEPERSONALIZATION", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_PERMISSION", ALL, None, origin="aosp"),
+    flag("RELEASE_APEX_CONTRIBUTIONS_PRIMARY_LIBS", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_REMOTEKEYPROVISIONING", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_RESOLV", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_SCHEDULING", ALL, None, origin="aosp"),
@@ -105,6 +107,9 @@ flags = [
     # Enables running multiple payloads in the same Microdroid VM instance.
     flag("RELEASE_AVF_ENABLE_MULTI_TENANT_MICRODROID_VM", SYSTEM, False, origin="aosp"),
 
+    # Adds supports for network functionality in VMs.
+    flag("RELEASE_AVF_ENABLE_NETWORK", SYSTEM, False),
+
     # Enables pVM remote attestation in Microdroid VM.
     flag("RELEASE_AVF_ENABLE_REMOTE_ATTESTATION", ALL, False, origin="aosp"),
 
@@ -128,6 +133,11 @@ flags = [
 
     # Set to True to freeze the board API level with vendor FRC
     flag("RELEASE_BOARD_API_LEVEL_FROZEN", ALL, False, origin="aosp"),
+
+    # Enable protobuf version of build flag processing.
+    # When true, the canonical source of truth for build flags is in the
+    # protobuf version of the data.
+    flag("RELEASE_BUILD_FLAGS_IN_PROTOBUF", ALL, True, origin="aosp"),
 
     # If true, then crashrecovery module is enabled as an apex
     flag("RELEASE_CRASHRECOVERY_MODULE", ALL, False, origin="aosp"),
@@ -273,8 +283,17 @@ flags = [
     # when the VNDK is deprecated
     flag("RELEASE_PLATFORM_VNDK_VERSION", ALL, "35", origin="aosp"),
 
+    # Control if we should read from new storage.
+    flag("RELEASE_READ_FROM_NEW_STORAGE", ALL, False, origin="google"),
+
     # feature flag for removing legacy emoji font from system image.
     flag("RELEASE_REMOVE_LEGACY_EMOJI_FONT", SYSTEM, False, origin="aosp"),
+
+    # Control if we should read from new storage.
+    flag("RELEASE_READ_FROM_NEW_STORAGE", ALL, False, origin="google"),
+
+    # Enable reading from new storage from C/C++ aconfig flag codegen.
+    flag("RELEASE_READ_FROM_NEW_STORAGE_CC", SYSTEM, False),
 
     # Ignore /data/data relabelling in libselinux.
     flag("RELEASE_SELINUX_DATA_DATA_IGNORE", ALL, False, origin="aosp"),
