@@ -83,6 +83,7 @@ flags = [
     flag("RELEASE_APEX_CONTRIBUTIONS_SDKEXTENSIONS", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_STATSD", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_SWCODEC", ALL, None, origin="aosp"),
+    flag("RELEASE_APEX_CONTRIBUTIONS_TELEMETRY_TVP", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_TZDATA", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_UWB", ALL, None, origin="aosp"),
     flag("RELEASE_APEX_CONTRIBUTIONS_WIFI", ALL, None, origin="aosp"),
@@ -210,6 +211,9 @@ flags = [
 
     # This flag will control of including Japanese variant (Hentaigana) font.
     flag("RELEASE_PACKAGE_HENTAIGANA_FONT", SYSTEM, False, origin="aosp"),
+
+    # Version of the Hebrew font file.
+    flag("RELEASE_PACKAGE_HEBREW_FONT_VERSION", SYSTEM, "1.04"),
 
     # b/301631861: Flag to enable punching holes in apks and shared libs
     flag("RELEASE_PACKAGE_LIBANDROID_RUNTIME_PUNCH_HOLES", ALL, False),
