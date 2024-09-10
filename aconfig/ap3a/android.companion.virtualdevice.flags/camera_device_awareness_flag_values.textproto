@@ -1,6 +1,6 @@
 flag_value {
   package: "android.companion.virtualdevice.flags"
   name: "camera_device_awareness"
-  state: ENABLED
+  state: DISABLED
   permission: READ_ONLY
 }
